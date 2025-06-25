@@ -1,0 +1,209 @@
+       html, body { 
+            font-family: Arial, Helvetica, sans-serif, system-ui; 
+            margin: 0; 
+            padding: 0;
+            background-color: rgb(248, 247, 247); /* фон */ 
+            background-image: url('fon.jpg');
+            background-size: cover; /* масштабирование */ 
+            background-repeat: no-repeat; /* чтоби не павтаралси */ 
+            background-attachment: fixed; /* фиксированный фон при прокрутке */ 
+            display: flex; 
+            flex-direction: column; 
+            height: 100%; 
+        } 
+
+        #main-content {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+}
+
+.fixed-title {
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  z-index: 1000;
+}
+
+.settings-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 24px;
+  background: #444;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.settings-panel {
+  position: fixed;
+  right: -220px;
+  top: 0;
+  height: 100%;
+  width: 200px;
+  background: #222;
+  color: white;
+  padding: 20px;
+  transition: right 0.3s ease;
+  z-index: 1000;
+}
+
+.settings-panel.open {
+  right: 0;
+}
+
+body.light-mode {
+  background: #f0f0f0;
+  color: #000;
+}
+
+body.light-mode .settings-panel {
+  background: #eee;
+  color: #000;
+}
+
+body.light-mode .settings-btn {
+  background: #ddd;
+  color: black;
+}
+
+.photo-feed {
+    flex-grow: 1;
+}
+        /* Полоса прокрутки */ 
+        ::-webkit-scrollbar { 
+            width: 12px; 
+        } 
+        ::-webkit-scrollbar-track { 
+            background: rgba(255, 255, 255, 0.1); /* Цвет фона полосы прокрутки */ 
+        } 
+        ::-webkit-scrollbar-thumb { 
+            background: rgba(121, 121, 121, 0.7); /* Цвет ползунка */ 
+            border-radius: 10px; 
+        } 
+        ::-webkit-scrollbar-thumb:hover { 
+            background: rgb(255, 255, 255); /* Цвет ползунка при наведении */ 
+        } 
+ 
+        header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            background-color: rgba(255, 255, 255, 0.014); /* полупрозрачный фон кнопок */ 
+            padding: 10px 20px; 
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+            position: relative; 
+        } 
+        .auth { 
+            display: flex; 
+            gap: 15px; 
+        } 
+        .auth form, .search form { 
+            display: inline; 
+        } 
+        .photo-feed { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            grid-template-rows: repeat(4, 1fr); 
+            width: 98%;
+            height: 100%;
+            gap: 10px; 
+            padding: 10px; 
+            flex-grow: 1; 
+        } 
+        .photo { 
+            position: relative; 
+            background-color: #ddd; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            font-size: 24px; 
+            font-weight: bold; 
+            overflow: hidden; 
+        } 
+        .photo img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+        } 
+        .photo .overlay { 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            color: white; 
+            font-size: 24px; 
+            font-weight: bold; 
+            background: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный фон */ 
+            opacity: 0; /* Изначально невидимая */ 
+            transition: opacity 0.3s; 
+        } 
+        .photo:hover .overlay { 
+            opacity: 1; /* Показывать при наведении */ 
+        } 
+        .dropdown-menu { 
+            display: none;
+            position: absolute; 
+            top: 100%; 
+            left: 0; 
+            background-color: white; 
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+            z-index: 1; 
+        } 
+        .dropdown-menu a { 
+            display: block; 
+            padding: 10px 20px; 
+            text-decoration: none; 
+            color: black; 
+            border-bottom: 1px solid #ddd; 
+        } 
+        .dropdown-menu a:hover { 
+            background-color: #f0f0f0; 
+        } 
+        footer { 
+            background-color: rgba(255, 255, 255, 0.055); /* полупрозрачный фон футера */ 
+            padding: 10px 20px; 
+            text-align: center; 
+            color: white; /* Белый цвет текста */ 
+        } 
+        footer a { 
+            color: white; 
+            margin: 0 10px; 
+            text-decoration: none; 
+        } 
+        footer a:hover { 
+            text-decoration: underline; 
+        }
+
+        header {
+    position: relative; /* чтобы контроль позиционирования внутри */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    box-sizing: border-box;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-shrink: 0;
+}
+
+.logo-img {
+    width: 70px;    /* ширина логотипа */
+    height: auto;   /* сохраняет пропорции */
+}
