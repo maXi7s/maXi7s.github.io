@@ -1,0 +1,194 @@
+<!DOCTYPE html> 
+<html lang="ru"> 
+<head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>kypca4</title> 
+  <link rel="stylesheet" href="style.css">
+  <style>
+    #login-form {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      flex-direction: column;
+      color: white;
+    }
+    #login-form input {
+      padding: 10px;
+      margin: 5px;
+      width: 200px;
+    }
+    #login-form button {
+      padding: 10px 20px;
+      margin-top: 10px;
+      background-color: #1bb76e;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    #login-error {
+      margin-top: 10px;
+      color: red;
+    }
+    #main-content {
+      display: none;
+    }
+  </style>
+</head> 
+<body>
+
+<!-- авторизация -->
+<div id="login-form">
+  <h2>Введите логин и пароль</h2>
+  <input type="text" id="login" placeholder="Логин">
+  <input type="password" id="password" placeholder="Пароль">
+  <button onclick="authorize()">Войти</button>
+  <div id="login-error"></div>
+</div>
+
+<!-- после авторизации -->
+<div id="main-content">
+  <header> 
+    <div class="logo">
+      <img src="log_blog.png" alt="Логотип" class="logo-img">
+    </div>
+  </header>
+
+  <!-- подпись -->
+<div class="fixed-title">Курсовая работа на 26.06, выполнена Никульшиным М.С.</div>
+
+<!-- настройки (по рофлу) -->
+<button id="settingsToggle" class="settings-btn">⚙</button>
+
+<!-- панелька для светлой темы -->
+<div id="settingsPanel" class="settings-panel">
+  <label>
+    <input type="checkbox" id="themeToggle"> Светлая тема
+  </label>
+</div>
+
+  <div class="preloader fade-out" style="display: none;">
+    <div class="loader">
+      <h1>Загрузка...</h1>
+      <div class="spinner"></div>
+    </div>
+
+  </div>
+
+    <div class="photo-feed"> 
+        <div class="photo">
+          <a href="copyright.html">   
+            <img src="C:\Users\mmmmm\Desktop\cd\фотки\1.jpg" alt="Фото 1"> 
+            <div class="overlay">всякие</div>
+          </a>
+        </div> 
+        <div class="photo"> 
+          <a href="copyright.html">
+            <img src="C:\Users\mmmmm\Desktop\cd\фотки\2.jpg" alt="Фото 2"> 
+            <div class="overlay">приколы</div>
+            </a>
+        </div> 
+        <div class="photo">
+          <a href="copyright.html">
+            <img src="C:\Users\mmmmm\Desktop\cd\фотки\3.jpg" alt="Фото 3"> 
+            <div class="overlay">для</div>
+            </a> 
+        </div> 
+        <div class="photo">
+          <a href="copyright.html">
+            <img src="C:\Users\mmmmm\Desktop\cd\фотки\4.jpg" alt="Фото 4"> 
+            <div class="overlay">того</div> 
+            </a>
+        </div> 
+        <div class="photo">
+          <a href="copyright.html">
+            <img src="C:\Users\mmmmm\Desktop\cd\фотки\5.jpg" alt="Фото 5"> 
+            <div class="overlay">чтобы</div>
+            </a> 
+        </div> 
+        <div class="photo">
+          <a href="copyright.html">
+            <img src="C:\Users\mmmmm\Desktop\cd\фотки\6.jpg" alt="Фото 6"> 
+            <div class="overlay">мною</div>
+            </a> 
+        </div> 
+        <div class="photo">
+          <a href="copyright.html"> 
+            <img src="C:\Users\mmmmm\Desktop\cd\фотки\7.jpg" alt="Фото 7"> 
+            <div class="overlay">написанный</div>
+            </a> 
+        </div> 
+        <div class="photo">
+          <a href="copyright.html">
+            <img src="C:\Users\mmmmm\Desktop\cd\фотки\8.jpg" alt="Фото 8"> 
+            <div class="overlay">сайт</div>
+            </a> 
+        </div> 
+        <div class="photo">
+          <a href="copyright.html">
+            <img src="C:\Users\mmmmm\Desktop\cd\фотки\9.jpg" alt="Фото 9"> 
+            <div class="overlay">не</div>
+            </a> 
+        </div> 
+        <div class="photo">
+          <a href="copyright.html"> 
+            <img src="C:\Users\mmmmm\Desktop\cd\фотки\10.jpg" alt="Фото 10"> 
+            <div class="overlay">был</div>
+            </a> 
+        </div> 
+        <div class="photo">
+          <a href="copyright.html"> 
+            <img src="C:\Users\mmmmm\Desktop\cd\фотки\11.jpg" alt="Фото 11"> 
+            <div class="overlay">таким</div>
+            </a> 
+        </div> 
+        <div class="photo">
+          <a href="copyright.html">
+            <img src="C:\Users\mmmmm\Desktop\cd\фотки\12.jpg" alt="Фото 12"> 
+            <div class="overlay">скучным</div>
+            </a>
+        </div> 
+</div>
+
+<script> /* полупрозрачный фон кнопок */
+  function authorize() {
+    const login = document.getElementById("login").value.trim();
+    const password = document.getElementById("password").value.trim();
+    const error = document.getElementById("login-error");
+
+    if (login === "o" && password === "1111") {
+      document.getElementById("login-form").style.display = "none";
+      document.getElementById("main-content").style.display = "block";
+    } else {
+      error.textContent = "Неверный логин или пароль.";
+    }
+  }
+</script>
+
+<script>
+  const toggleBtn = document.getElementById("settingsToggle");
+  const panel = document.getElementById("settingsPanel");
+  const themeToggle = document.getElementById("themeToggle");
+
+  toggleBtn.addEventListener("click", () => {
+    panel.classList.toggle("open");
+  });
+
+  themeToggle.addEventListener("change", () => {
+    document.body.classList.toggle("light-mode", themeToggle.checked);
+  });
+</script>
+
+</body>
+</html>
+  <footer>
+    © Ovchinnikov Inc; все права защищены · 
+    <a href="about.html">About</a> · 
+    <a href="terms.html">Terms</a> · 
+    <a href="copyright.html">Copyright</a> 
+  </footer>
