@@ -1,0 +1,147 @@
+:root{
+  --bg:#050612;
+  --card: rgba(255,255,255,0.03);
+  --accent:#00eaff;
+  --muted:#9fbfc6;
+  --text:#e7f9ff;
+  --glass: rgba(255,255,255,0.03);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family: Inter, Poppins, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden;
+}
+
+#bgCanvas{position:fixed;inset:0;width:100%;height:100%;z-index:0}
+.wave-bg{position:fixed;inset:-20%;z-index:-1;background:radial-gradient(circle at 10% 10%, rgba(0,90,120,0.12), transparent 20%), radial-gradient(circle at 90% 90%, rgba(0,200,255,0.06), transparent 18%);}
+
+/* переход */
+.page-transition{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:var(--bg);z-index:9998;transition:opacity .45s ease}
+.page-transition.hidden{opacity:0;pointer-events:none}
+.transition-logo{font-weight:700;color:var(--accent);font-size:1.6rem;letter-spacing:0.6px}
+
+/* хедер */
+.header{position:relative;z-index:5;padding:18px 6%;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(180deg, rgba(0,0,0,0.2), rgba(255,255,255,0.02));border-bottom:1px solid rgba(0,234,255,0.06)}
+.logo{font-weight:700;color:var(--accent)}
+.nav a{color:var(--text);text-decoration:none;margin-left:20px;padding-bottom:6px;transition:color .18s}
+.nav a:hover{color:var(--accent)}
+.nav a.active{color:var(--accent);border-bottom:2px solid var(--accent)}
+
+.section{max-width:1100px;margin:0 auto;padding:64px 20px;position:relative;z-index:2;text-align:center}
+.lead{color:var(--muted);margin-top:8px}
+
+.hero h1{font-size:2.4rem}
+.accent{color:var(--accent);text-shadow:0 0 12px rgba(0,234,255,0.12)}
+
+/* кнопки */
+.btn{
+  display:inline-block;
+  background:linear-gradient(90deg,var(--accent),#7bf0ff);
+  color:#000;padding:10px 18px;border-radius:8px;border:none;font-weight:600;cursor:pointer;
+  box-shadow:0 8px 18px rgba(0,234,255,0.06);
+  transition:transform .14s ease, box-shadow .14s ease;
+}
+.btn:hover{transform:translateY(-4px);box-shadow:0 18px 36px rgba(0,234,255,0.09)}
+.btn.ghost{background:transparent;color:var(--accent);border:10px solid rgba(0,234,255,0.08)}
+
+.service-grid, .team-grid, .project-grid, .review-grid{display:grid;gap:18px}
+.service-grid{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.team-grid{grid-template-columns:repeat(auto-fit,minmax(160px,1fr));justify-items:center}
+.project-grid{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));justify-items:center}
+.review-grid{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));justify-items:center}
+
+/* карточка */
+.service-card, .team-member, .project-card, .review-card, .profile-card{
+  background:var(--card);
+  border-radius:10px;padding:18px;border:1px solid rgba(0,234,255,0.04);
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.service-card:hover, .team-member:hover, .project-card:hover, .review-card:hover { transform:translateY(-6px); box-shadow:0 18px 40px rgba(0,234,255,0.04) }
+
+.team-member img{width:100%;max-width:140px;border-radius:8px;margin-bottom:10px}
+
+.project-card img{width:100%;height:180px;object-fit:cover;border-radius:8px;display:block}
+
+/* отзывы */
+.review-card .quote{font-style:italic;color:#dff8ff;line-height:1.4;margin-bottom:10px}
+.review-card .author{color:var(--accent);text-align:right;font-weight:600}
+
+/* контакты */
+.contact-grid{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:start}
+.contact-form input, .contact-form textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:rgba(255,255,255,0.02);color:var(--text);margin-bottom:10px}
+.contact-form .form-actions{display:flex;gap:10px;justify-content:flex-start;align-items:center}
+.contact-info h3{margin-bottom:8px}
+.map-small iframe{width:100%;height:160px;border-radius:8px;border:0;box-shadow:0 8px 30px rgba(0,0,0,0.4)}
+
+/* вопросы и ответы */
+.faq-item{background:rgba(255,255,255,0.02);padding:12px;border-radius:8px;margin:12px auto;max-width:1000px;text-align:left;cursor:pointer;border:1px solid transparent}
+.faq-item .a{max-height:0;overflow:hidden;opacity:0;transition:max-height .28s ease, opacity .28s}
+.faq-item.open .a{max-height:200px;opacity:1}
+
+/* профиль */
+.profile-card{max-width:520px;margin:0 auto 18px;padding:20px;text-align:center}
+.profile-card img{width:120px;height:120px;border-radius:50%;display:block;margin:0 auto 10px;border:2px solid var(--accent)}
+.profile-actions{display:flex;gap:8px;justify-content:center;margin-top:8px}
+.history-list{list-style:none;padding-left:0;text-align:left}
+.muted{color:var(--muted)}
+
+footer{margin-top:40px;padding:28px 20px;border-top:1px solid rgba(0,234,255,0.03)}
+.footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;color:var(--muted)}
+
+.auth-modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.5);z-index:9999}
+.auth-modal-inner{width:360px;max-width:92%;background:linear-gradient(180deg, rgba(6,10,12,0.95), rgba(12,16,20,0.98));border-radius:10px;padding:18px;border:1px solid rgba(0,234,255,0.04);text-align:left}
+.auth-modal-inner h3{color:var(--accent);margin-bottom:10px}
+.auth-modal-inner input[type="text"], .auth-modal-inner input[type="email"], .auth-modal-inner input[type="password"]{width:100%;padding:10px;margin-bottom:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:rgba(255,255,255,0.02);color:var(--text)}
+.auth-close{position:absolute;right:20px;top:18px;background:transparent;border:none;color:var(--muted);font-size:18px;cursor:pointer}
+
+.toast{position:fixed;right:20px;bottom:20px;background:rgba(0,10,20,0.9);padding:12px 14px;border-radius:8px;border:1px solid rgba(0,234,255,0.06);opacity:0;transform:translateY(8px);transition:all .28s;z-index:10000}
+.toast.show{opacity:1;transform:translateY(0)}
+.toast.error{border-left:4px solid #ff7070}
+.toast.success{border-left:4px solid #4dfd9a}
+
+@media (max-width:900px){
+.contact-grid{grid-template-columns:1fr}
+.footer-inner{flex-direction:column;
+gap:10px}
+.hero h1{font-size:1.6rem}
+.project-card img{height:160px}
+}
+.auth-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.auth-modal-inner {
+  position: relative;
+  background: rgba(15,20,27,0.85);
+  border: 1px solid rgba(0,234,255,0.12);
+  border-radius: 14px;
+  padding: 26px;
+  width: 340px;
+  box-shadow: 0 0 22px rgba(0,234,255,0.12);
+}
+
+/* Кнопка-крестик */
+.auth-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  color: var(--accent);
+  font-size: 22px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: 0.2s;
+}
+
+.auth-close:hover {
+  opacity: 1;
+  transform: scale(1.15);
+}

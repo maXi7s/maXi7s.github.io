@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Neuropulse — Личный кабинет</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="profile-page">
+  <div class="page-transition hidden"><div class="transition-logo">Neuropulse</div></div>
+  <canvas id="bgCanvas"></canvas>
+  <div class="wave-bg"></div>
+
+  <header class="header">
+    <div class="logo">Neuropulse</div>
+    <nav class="nav">
+      <a href="index.html">Главная</a>
+      <a href="about.html">О нас</a>
+      <a href="contact.html">Контакты</a>
+      <a href="profile.html" class="active profile-icon">ЛК</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section profile">
+      <h2>Личный кабинет</h2>
+
+      <div class="profile-card">
+        <img id="avatar-img" src="https://cdn-images.dzcdn.net/images/artist/c115cb1165e9a94a7df329b88bf33cc5/1900x1900-000000-81-0-0.jpg" alt="avatar">
+        <h3 id="username">Гость</h3>
+        <p id="user-email" class="muted">Не авторизован</p>
+        <div class="profile-actions">
+          <button class="btn edit-btn" id="edit-profile">Редактировать</button>
+          <button class="btn ghost" id="login-open">Войти / Регистрация</button>
+          <button class="btn logout-btn" id="logout-btn" style="display:none">Выйти</button>
+        </div>
+      </div>
+
+      <div class="history">
+        <h3>История обращений</h3>
+        <ul id="history-list" class="history-list"><li class="muted">Нет данных</li></ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>© 2025 Neuropulse</div>
+      <div class="socials">
+        <a href="#">VK</a>
+        <a href="#">Telegram</a>
+        <a href="#">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

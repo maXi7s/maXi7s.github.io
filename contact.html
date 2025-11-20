@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Neuropulse — Контакты</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page-transition hidden"><div class="transition-logo">Neuropulse</div></div>
+  <canvas id="bgCanvas"></canvas>
+  <div class="wave-bg"></div>
+
+  <header class="header">
+    <div class="logo">Neuropulse</div> 
+    <nav class="logo">
+      <a href="index.html"></a>
+  </nav>
+    <nav class="nav">
+      <a href="index.html">Главная</a>
+      <a href="about.html">О нас</a>
+      <a href="contact.html" class="active">Контакты</a>
+      <a href="profile.html" class="profile-icon">ЛК</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section contact-section">
+      <h2>Связаться с нами</h2>
+      <div class="contact-grid">
+        <form class="contact-form">
+          <input id="name" name="name" type="text" placeholder="Ваше имя" required />
+          <input id="email" name="email" type="email" placeholder="E-mail" required />
+          <textarea id="message" name="message" placeholder="Сообщение" rows="5" required></textarea>
+          <div class="form-actions">
+            <button class="btn" type="submit">Отправить</button>
+            <button class="btn ghost" type="button" id="to-register">Войти / Зарегистрироваться</button>
+          </div>
+        </form>
+
+        <div class="contact-info">
+          <h3>Контактные данные</h3>
+          <p>📞 +7 (925) 944-02-06</p>
+          <p>📧 customersupport@neuropulse.io</p>
+          <p>📍 Щёлково, ул. Малопролетарская, 28</p>
+          <div class="map-small">
+            <iframe src="https://yandex.ru/map-widget/v1/?ll=38.002045%2C55.921133&z=18.8" width="560" height="400" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq">
+      <h2>Часто задаваемые вопросы</h2>
+      <div class="faq-item"><div class="q">Как связаться с поддержкой?</div><div class="a">Через форму выше или по e-mail.</div></div>
+      <div class="faq-item"><div class="q">Как быстро ответим?</div><div class="a">Обычно в течение 24 часов.</div></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>© 2025 Neuropulse</div>
+      <div class="socials"> <a href="#">VK</a> <a href="#">Telegram</a> <a href="#">GitHub</a> </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
